@@ -1,0 +1,53 @@
+﻿@model IEnumerable<EmployeeManagementAPI.Models.Department>
+
+<h2 class="text-center">Department List</h2>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Department Name</th>
+            <th>Location</th>
+            <th>Employee Names</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var department in Model)
+        {
+            <tr>
+                <form asp-action="EditInline" method="post">
+                    <input type="hidden" name="DepartmentID" value="@department.DepartmentID" />
+                <td>
+                    <input type="text" name="DepartmentName" class="form-control" value="@department.DepartmentName" />
+                </td>
+                <td>
+                    <input type="text" name="Location" class="form-control" value="@department.Location" />
+                </td>
+                <td>
+                        @if (department.Employees != null && department.Employees.Any())
+                        {
+                        <ul>
+                                @foreach (var employee in department.Employees)
+                                {
+                                <li>@employee.EmployeeName</li>
+                                }
+                        </ul>
+                        }
+                        else
+                        {
+                        <span>No Employees Assigned</span>
+                        }
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-success btn-sm">Save</button>
+                    <a asp-action="Delete" asp-route-id="@department.DepartmentID" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+                </form>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="text-center mt-4">
+    <a asp-action="Create" class="btn btn-primary">Add New Department</a>
+</div>

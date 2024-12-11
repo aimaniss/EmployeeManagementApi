@@ -1,0 +1,33 @@
+﻿@model EmployeeManagementAPI.Models.Department
+
+<div class="container mt-4">
+    <h2 class="text-center">Delete Department</h2>
+
+    <h3 class="text-center">Are you sure you want to delete this department?</h3>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+            <dl class="row">
+                <dt class="col-sm-4">
+                    Department Name
+                </dt>
+                <dd class="col-sm-8">
+                    @Model.DepartmentName
+                </dd>
+                <dt class="col-sm-4">
+                    Location
+                </dt>
+                <dd class="col-sm-8">
+                    @Model.Location
+                </dd>
+            </dl>
+
+            <form asp-action="Delete" method="post" class="text-center">
+                <!-- Hidden field for DepartmentID -->
+                <input type="hidden" asp-for="DepartmentID" />
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

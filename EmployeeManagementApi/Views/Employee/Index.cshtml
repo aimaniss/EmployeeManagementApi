@@ -1,0 +1,49 @@
+﻿@model IEnumerable<EmployeeManagementAPI.Models.Employee>
+
+<h2 class="text-center">Employee List</h2>
+
+<form asp-action="EditInline" method="post">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Employee Name</th>
+                <th>Date of Birth</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Hire Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>
+                        <input type="hidden" name="EmployeeID" value="@employee.EmployeeID" />
+                        <input type="text" name="EmployeeName" value="@employee.EmployeeName" class="form-control" />
+                    </td>
+                    <td>
+                        <input type="date" name="DateBirth" value="@employee.DateBirth.ToString("yyyy-MM-dd")" class="form-control" />
+                    </td>
+                    <td>
+                        <input type="email" name="Email" value="@employee.Email" class="form-control" />
+                    </td>
+                    <td>
+                        <input type="text" name="PhoneNumber" value="@employee.PhoneNumber" class="form-control" />
+                    </td>
+                    <td>
+                        <input type="date" name="HireDate" value="@employee.HireDate.ToString("yyyy-MM-dd")" class="form-control" />
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-success">Save</button>
+                        <a asp-action="Delete" asp-route-id="@employee.EmployeeID" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
+
+<div class="text-center mt-4">
+    <a asp-action="Create" class="btn btn-primary">Add New Employee</a>
+</div>

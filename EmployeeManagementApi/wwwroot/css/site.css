@@ -1,0 +1,87 @@
+/* Global font size */
+html {
+    font-size: 14px;
+}
+
+/* Adjust font size on larger screens */
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Focus and active states for buttons and form elements */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* Ensure the html element takes full height of the page */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+/* Prevent body content from overlapping the footer */
+body {
+    margin-bottom: 60px;
+    background-color: #EADDCA; /* Set the background color outside the container */
+}
+
+/* Optional: Add custom background color for your FAQ and container sections */
+.container.custom-bg {
+    background-color: #ffffff; /* Optional: White background for the container */
+}
+
+/* Optional: Style for the FAQ items for readability */
+.faq-item {
+    background-color: #F2D2BD;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+    .faq-item h4 {
+        font-size: 1.25rem;
+    }
+
+    .faq-item p {
+        font-size: 1rem;
+        color: #333;
+    }
+
+/* Add custom color for the navbar */
+.navbar {
+    background-color: #ccb3a3 !important;
+}
+
+/* Adjustments for footer to ensure it stays at the bottom */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+    color: #6c757d;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Optional: Custom font sizes for h1, h2 */
+h1.display-4 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+}

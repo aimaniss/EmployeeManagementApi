@@ -1,0 +1,66 @@
+﻿@model EmployeeManagementAPI.Models.Employee
+
+<style>
+    /* Custom Container width */
+    .container.custom-container {
+        max-width: 80%; /* Increase width of the container */
+        margin: 0 auto; /* Center the container */
+    }
+
+    /* Custom form input height */
+    .form-control {
+        height: 35px; /* Decrease the height of the input fields */
+    }
+</style>
+
+<div class="container custom-container mt-4">
+    <h2 class="text-center">Add New Employee</h2>
+
+    <form asp-action="Create" method="post">
+        <div class="form-group">
+            <label asp-for="EmployeeName" class="font-weight-bold"></label>
+            <input asp-for="EmployeeName" class="form-control" placeholder="Enter employee name" />
+            <span asp-validation-for="EmployeeName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DateBirth" class="font-weight-bold"></label>
+            <input asp-for="DateBirth" type="date" class="form-control" />
+            <span asp-validation-for="DateBirth" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email" class="font-weight-bold"></label>
+            <input asp-for="Email" class="form-control" placeholder="Enter email address" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PhoneNumber" class="font-weight-bold"></label>
+            <input asp-for="PhoneNumber" class="form-control" placeholder="Enter phone number" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="HireDate" class="font-weight-bold"></label>
+            <input asp-for="HireDate" type="date" class="form-control" />
+            <span asp-validation-for="HireDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DepartmentID" class="font-weight-bold">Department</label>
+            <select asp-for="DepartmentID" asp-items="ViewBag.Departments" class="form-control">
+                <option value="">Select a department</option>
+            </select>
+            <span asp-validation-for="DepartmentID" class="text-danger"></span>
+        </div>
+
+        <div class="form-group text-center mt-3">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+
+    <div class="text-center mt-3">
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
